@@ -9,37 +9,90 @@
   android:background="@color/venturingYellow"
   tools:context=".MainActivity">
 
+
+  <android.support.v4.view.ViewPager
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container">
+    </android.support.v4.view.ViewPager>
+  
   <ImageView
     android:id="@+id/imageView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_background"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="16dp"/>
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:layout_editor_absoluteX="52dp"
+    tools:layout_editor_absoluteY="0dp"/>
 
 
-  <Button
-    android:id="@+id/scout_button"
-    style="@style/Widget.AppCompat.Button.Colored"
+  <!--<Button-->
+    <!--android:id="@+id/scout_button"-->
+    <!--style="@style/Widget.AppCompat.Button.Colored"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="8dp"-->
+    <!--android:layout_marginStart="8dp"-->
+    <!--android:background="#cc303030"-->
+    <!--android:text="Scout"-->
+    <!--app:layout_constraintBottom_toBottomOf="@+id/imageView"-->
+    <!--app:layout_constraintStart_toStartOf="@+id/imageView"/>-->
+
+  <ImageButton
+    android:id="@+id/badge"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:layout_marginStart="8dp"
-    android:background="#cc303030"
-    android:text="Scout"
-    app:layout_constraintBottom_toBottomOf="@+id/imageView"
-    app:layout_constraintStart_toStartOf="@+id/imageView"/>
-  <Button
-    android:id="@+id/badge_button"
-    style="@style/Widget.AppCompat.Button.Colored"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:layout_marginEnd="8dp"
-    android:background="#cc303030"
-    android:text="Badge"
+    android:layout_marginBottom="16dp"
+    android:layout_marginEnd="16dp"
+    android:background="@drawable/ic_badges"
     app:layout_constraintBottom_toBottomOf="@+id/imageView"
     app:layout_constraintEnd_toEndOf="@+id/imageView"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/badges"
+    app:layout_constraintBottom_toBottomOf="@+id/badge"
+    app:layout_constraintTop_toBottomOf="@id/badge"
+    app:layout_constraintEnd_toEndOf="@id/badge"
+    app:layout_constraintVertical_bias="1.0"
+    tools:layout_editor_absoluteX="32dp"
+    />
+
+  <ImageButton
+    android:id="@+id/scout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:layout_marginStart="16dp"
+    android:background="@drawable/ic_scout"
+    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+    app:layout_constraintStart_toStartOf="@+id/imageView"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/scout_button"
+    app:layout_constraintBottom_toBottomOf="@+id/badge"
+    app:layout_constraintTop_toBottomOf="@id/badge"
+    app:layout_constraintStart_toStartOf="@id/scout"
+    app:layout_constraintVertical_bias="1.0"
+    tools:layout_editor_absoluteX="32dp"
+    />
+
+  <!--<Button-->
+    <!--android:id="@+id/badge_button"-->
+    <!--style="@style/Widget.AppCompat.Button.Colored"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="8dp"-->
+    <!--android:layout_marginEnd="8dp"-->
+    <!--android:background="#cc303030"-->
+    <!--android:text="Badge"-->
+    <!--app:layout_constraintBottom_toBottomOf="@+id/imageView"-->
+    <!--app:layout_constraintEnd_toEndOf="@+id/imageView"/>-->
 
 
 

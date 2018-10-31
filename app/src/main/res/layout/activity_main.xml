@@ -1,99 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:background="@color/venturingYellow"
-  tools:context=".MainActivity">
+Skip to content
 
-
-  <android.support.v4.view.ViewPager
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/container">
-    </android.support.v4.view.ViewPager>
-  
-  <ImageView
-    android:id="@+id/imageView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/ic_background"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    tools:layout_editor_absoluteX="52dp"
-    tools:layout_editor_absoluteY="0dp"/>
-
-
-  <!--<Button-->
-    <!--android:id="@+id/scout_button"-->
-    <!--style="@style/Widget.AppCompat.Button.Colored"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginBottom="8dp"-->
-    <!--android:layout_marginStart="8dp"-->
-    <!--android:background="#cc303030"-->
-    <!--android:text="Scout"-->
-    <!--app:layout_constraintBottom_toBottomOf="@+id/imageView"-->
-    <!--app:layout_constraintStart_toStartOf="@+id/imageView"/>-->
-
-  <ImageButton
-    android:id="@+id/badge"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp"
-    android:layout_marginEnd="16dp"
-    android:background="@drawable/ic_badges"
-    app:layout_constraintBottom_toBottomOf="@+id/imageView"
-    app:layout_constraintEnd_toEndOf="@+id/imageView"/>
-
-  <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/badges"
-    app:layout_constraintBottom_toBottomOf="@+id/badge"
-    app:layout_constraintTop_toBottomOf="@id/badge"
-    app:layout_constraintEnd_toEndOf="@id/badge"
-    app:layout_constraintVertical_bias="1.0"
-    tools:layout_editor_absoluteX="32dp"
-    />
-
-  <ImageButton
-    android:id="@+id/scout"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp"
-    android:layout_marginStart="16dp"
-    android:background="@drawable/ic_scout"
-    app:layout_constraintBottom_toBottomOf="@+id/imageView"
-    app:layout_constraintStart_toStartOf="@+id/imageView"/>
-
-  <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/scout_button"
-    app:layout_constraintBottom_toBottomOf="@+id/badge"
-    app:layout_constraintTop_toBottomOf="@id/badge"
-    app:layout_constraintStart_toStartOf="@id/scout"
-    app:layout_constraintVertical_bias="1.0"
-    tools:layout_editor_absoluteX="32dp"
-    />
-
-  <!--<Button-->
-    <!--android:id="@+id/badge_button"-->
-    <!--style="@style/Widget.AppCompat.Button.Colored"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginBottom="8dp"-->
-    <!--android:layout_marginEnd="8dp"-->
-    <!--android:background="#cc303030"-->
-    <!--android:text="Badge"-->
-    <!--app:layout_constraintBottom_toBottomOf="@+id/imageView"-->
-    <!--app:layout_constraintEnd_toEndOf="@+id/imageView"/>-->
+  Pull requests
+  Issues
+  Marketplace
+  Explore
 
 
 
-</android.support.constraint.ConstraintLayout>
+  import android.content.Context;
+  import android.graphics.Color;
+  import android.os.AsyncTask;
+  import android.support.annotation.NonNull;
+  import android.support.v7.app.AppCompatActivity;
+  import android.support.v7.widget.RecyclerView;
+  import android.view.ContextMenu;
+  import android.view.ContextMenu.ContextMenuInfo;
+  import android.view.LayoutInflater;
+  import android.view.View;
+  import android.view.ViewGroup;
+  import android.widget.TextView;
+  import java.util.Arrays;
+  import java.util.List;
+  import org.w3c.dom.Text;
+
+  public class PickBadge extends RecyclerView.Adapter<PickBadge.Holder> {
+
+  private Context context;
+  private List<PickAndNumbers> picks;
+
+    public PickAdapter(Context context, List<PickAndNumbers> picks) {
+      this.context = context;
+      this.picks = picks;
+      }
+
+      @NonNull
+      @Override
+      public Holder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+      View view = LayoutInflater.from(context)
+      .inflate(R.layout.pick_item, viewGroup, false);
+      return new Holder(view);
+      }
+
+      @Override
+      public void onBindViewHolder(@NonNull Holder holder, int position) {
+      holder.bind();
+      if (position % 2 == 0) {
+      holder.itemView.setBackgroundColor(Color.argb(16, 255, 255, 0));
+      } else {
+      holder.itemView.setBackgroundColor(Color.argb(16, 0, 255, 255));
+      }
+      }
+
+      @Override
+      public int getItemCount() {
+      return picks.size();
+      }
+
+      public class Holder extends RecyclerView.ViewHolder
+      implements View.OnCreateContextMenuListener {
+
+      private static final int PICK_LENGTH = 6;
+
+      private PickAndNumbers pick;
+      private TextView[] numbers;
+
+      public Holder(@NonNull View view) {
+      super(view);
+      view.setOnCreateContextMenuListener(this);
+      numbers = new TextView[PICK_LENGTH];
+      for (int i = 0; i < PICK_LENGTH; i++) {
+      int id = context.getResources().getIdentifier("num_" + i, "id", context.getPackageName());
+      numbers[i] = view.findViewById(id);
+      }
+      }
+
+      private void bind() {
+      pick = picks.get(getAdapterPosition());
+      List<PickNumber> numbers = pick.getNumbers();
+        int index = 0;
+        for (PickNumber pickNumber : numbers) {
+        this.numbers[index++].
+        setText(context.getString(R.string.pick_number_format, pickNumber.getValue()));
+        }
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+        menu.add(R.string.delete_pick).setOnMenuItemClickListener((item) -> {
+        ((MainActivity) context).deletePick(getAdapterPosition(), pick.getPick());
+        return true;
+        });
+        }
+
+        }
+
+        }

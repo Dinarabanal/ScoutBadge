@@ -1,10 +1,12 @@
-package edu.cnm.deepdive.scoutbadges;
+package edu.cnm.deepdive.scoutbadges.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-
+import edu.cnm.deepdive.scoutbadges.BadgeFragment;
+import edu.cnm.deepdive.scoutbadges.R;
+import edu.cnm.deepdive.scoutbadges.ScoutFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
       @Override
       public void onClick(View v) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.scout_button, new ScoutFragment()).addToBackStack("scoutlayout").commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.scout_button,
+            new ScoutFragment()).addToBackStack("scoutlayout").commit();
 
       }
     });
@@ -32,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
       @Override
       public void onClick(View v) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.badge_button, new BadgeFragment()).addToBackStack("badgelayout").commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.badge_button,
+            new BadgeFragment()).addToBackStack("badgelayout").commit();
       }
     });
 

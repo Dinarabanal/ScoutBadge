@@ -23,7 +23,9 @@ public class BadgeFragment extends android.support.v4.app.Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
 
-    return inflater.inflate(R.layout.fragment_badges, container, false);
+    View view = inflater.inflate(R.layout.fragment_badges, container, false);
+
+    return view;
 
   }
 

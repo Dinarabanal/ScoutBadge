@@ -17,22 +17,22 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    ScoutButton = (ImageButton) findViewById(R.id.scout);
+    ScoutButton = (ImageButton) findViewById(R.id.scout_button);
     ScoutButton.setOnClickListener(new View.OnClickListener() {
 
       @Override
       public void onClick(View v) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.scout_layout, new ScoutFragment()).addToBackStack("scoutlayout").commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.scout_button, new ScoutFragment()).addToBackStack("scoutlayout").commit();
 
       }
     });
 
-    BadgeButton = (ImageButton) findViewById(R.id.badge);
+    BadgeButton = (ImageButton) findViewById(R.id.badge_button);
     BadgeButton.setOnClickListener(new View.OnClickListener() {
 
       @Override
       public void onClick(View v) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.badge_layout, new BadgeFragment()).addToBackStack("badgelayout").commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.badge_button, new BadgeFragment()).addToBackStack("badgelayout").commit();
       }
     });
 

@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.scoutbadges;
+package edu.cnm.deepdive.scoutbadges.model.dao.entities;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;

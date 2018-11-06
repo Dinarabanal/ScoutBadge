@@ -13,7 +13,6 @@
     android:textSize="25dp"
     android:text="Select Your Badge"/>
 
-
   <android.support.v7.widget.RecyclerView
     android:id="@+id/pick_list_view"
     android:layout_width="match_parent"

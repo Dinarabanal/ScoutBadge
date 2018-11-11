@@ -19,6 +19,11 @@ public class Scout {
   @ColumnInfo(name= "scout_id")
   private long id;
 
+  public void setFullName(@NonNull String firstNamex,@NonNull String lastNamex) {
+    firstName = firstNamex;
+    lastName = lastNamex;
+  }
+
   @NonNull
   @ColumnInfo(name = "last_name", collate = ColumnInfo.NOCASE)
   private String lastName;

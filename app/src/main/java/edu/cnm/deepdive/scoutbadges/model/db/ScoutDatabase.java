@@ -35,7 +35,7 @@ public abstract class ScoutDatabase extends RoomDatabase {
 
   }
 
-  public abstract ScoutDao getStudentDao();
+  public abstract ScoutDao getScoutDao();
 
   private static class Callback extends RoomDatabase.Callback {
 
@@ -69,7 +69,7 @@ public abstract class ScoutDatabase extends RoomDatabase {
     @Override
     protected Void doInBackground(Void... voids) {
       ScoutDatabase db = getInstance(context);
-     ScoutDao dao = db.getStudentDao();
+     ScoutDao dao = db.getScoutDao();
      Scout scout =  new  Scout();
      scout.setLastName("Smith");
      scout.setFirstName("Michael");

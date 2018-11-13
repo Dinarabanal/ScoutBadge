@@ -8,7 +8,8 @@ import edu.cnm.deepdive.scoutbadges.model.entities.Scout;
 
 @Dao
 public interface ScoutDao {
-  @Insert(onConflict = OnConflictStrategy.FAIL)
+
+  @Insert(onConflict = OnConflictStrategy.REPLACE)
   long insert (Scout scout);
 
 

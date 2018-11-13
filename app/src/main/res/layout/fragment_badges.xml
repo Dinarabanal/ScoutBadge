@@ -1,24 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
+  android:layout_height="wrap_content"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
   tools:context=".BadgeFragment"
-  android:background="#75E900">
+  android:background="#75E900"
+  android:padding="10dp"
+  android:id="@+id/parent_layout">
 
   <TextView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textSize="25dp"
-    android:text="Select Your Badge"/>
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:text="Select Your Badge"
+    android:textSize="25dp"/>
 
-  <android.support.v7.widget.RecyclerView
-    android:id="@+id/pick_list_view"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent"/>
+  <GridLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteX="10dp"
+    tools:layout_editor_absoluteY="52dp">
+
+    <LinearLayout
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:orientation="vertical">
 
 
-</RelativeLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:id="@+id/badge_image"
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:src="@mipmap/ic_launcher"
+      app:civ_border_color="#FF000000"
+      app:civ_border_width="2dp"/>
+
+    <TextView
+      android:id="@+id/badge_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="Badge"
+      android:textSize="20sp"/>
+    </LinearLayout>
+
+  </GridLayout>
+  <!--<android.support.v7.widget.RecyclerView-->
+  <!--android:id="@+id/pick_list_view"-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="0dp"-->
+  <!--app:layout_constraintTop_toTopOf="parent"-->
+  <!--app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+
+</android.support.constraint.ConstraintLayout>

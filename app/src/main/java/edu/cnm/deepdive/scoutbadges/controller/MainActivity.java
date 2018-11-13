@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.scoutbadges.controller;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,8 @@ import edu.cnm.deepdive.scoutbadges.ScoutFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
   private ImageButton ScoutButton;
   private ImageButton BadgeButton;
 
@@ -19,12 +22,13 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+
     ScoutButton = (ImageButton) findViewById(R.id.scout_button);
     ScoutButton.setOnClickListener(new View.OnClickListener() {
 
       @Override
       public void onClick(View v) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.scout_button,
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
             new ScoutFragment()).addToBackStack("scoutlayout").commit();
 
       }
@@ -35,14 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
       @Override
       public void onClick(View v) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.badge_button,
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
             new BadgeFragment()).addToBackStack("badgelayout").commit();
       }
     });
 
 
   }
-
-
   }
 

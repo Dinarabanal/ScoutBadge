@@ -13,7 +13,6 @@ import edu.cnm.deepdive.scoutbadges.ScoutFragment;
 public class MainActivity extends AppCompatActivity {
 
 
-
   private ImageButton ScoutButton;
   private ImageButton BadgeButton;
 
@@ -46,5 +45,5 @@ public class MainActivity extends AppCompatActivity {
 
 
   }
-  }
+}
 
